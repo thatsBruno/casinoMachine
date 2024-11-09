@@ -61,7 +61,7 @@ func GetBet(balance uint) uint {
 	var bet uint
 
 	for {
-		fmt.Printf("Enter your bet: (balance = $%d) ", balance)
+		fmt.Printf("\nEnter your bet: (balance = $%d) ", balance)
 		_, err := fmt.Scanln(&bet)
 		if err != nil {
 			log.Fatal(err)
