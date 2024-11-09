@@ -13,7 +13,7 @@ func main() {
 		"C": 12,
 		"D": 20,
 	}
-	mulipliers := map[string]uint{
+	multipliers := map[string]uint{
 		"A": 20,
 		"B": 10,
 		"C": 5,
@@ -35,7 +35,7 @@ func main() {
 		balance -= bet
 		spin := getSpin(symbolArr, 3, 3)
 		printSpin(spin)
-		winningLines := checkSpin(spin, mulipliers)
+		winningLines := checkSpin(spin, multipliers)
 		fmt.Println(winningLines)
 		for i, multi := range winningLines {
 			win := multi * bet
@@ -48,12 +48,8 @@ func main() {
 }
 
 // methods
-func checkLines(lines []uint) {
-
-}
-
 func checkSpin(spin [][]string, multiplier map[string]uint) []uint {
-	lines := []uint{}
+	var lines []uint
 
 	for _, row := range spin {
 		win := true
@@ -138,7 +134,7 @@ func getName() string {
 func getBet(balance uint) uint {
 	var bet uint
 
-	for true {
+	for {
 		fmt.Printf("Enter your bet: (balance = $%d) ", balance)
 		_, err := fmt.Scanln(&bet)
 		if err != nil {
