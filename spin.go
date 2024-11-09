@@ -74,3 +74,24 @@ func GetBet(balance uint) uint {
 	}
 	return bet
 }
+
+func CheckSpin(spin [][]string, multiplier map[string]uint) []uint {
+	var lines []uint
+
+	for _, row := range spin {
+		win := true
+		checksSymbol := row[0]
+		for _, symbol := range row[1:] {
+			if checksSymbol != symbol {
+				win = false
+				break
+			}
+		}
+		if win {
+			lines = append(lines, multiplier[checksSymbol])
+		} else {
+			lines = append(lines, 0)
+		}
+	}
+	return lines
+}
